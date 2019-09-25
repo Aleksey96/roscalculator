@@ -1,341 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#B71C40"
-                android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbarDefaultDelayBeforeFade="400"
-                android:visibility="visible"
-                android:gravity="center">
-
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/RLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:background="#FAF6F6">
+    <LinearLayout
+            android:id="@+id/liner1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <TextView
+                android:text="Должность"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textView7"
-                android:text="Дожность"
+                android:id="@+id/textView29"
+                android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="#090808"
-                android:visibility="visible"/>
+                android:textColor="#F2090000" android:ems="10"/>
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
                 android:text="Дивизион"
-                android:textSize="20sp"
-                android:textColor="#090808"
-                android:visibility="visible"/>
-        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textView6"
-                android:layout_marginTop="8dp"
-                android:text="КОТ"
+                android:id="@+id/textView13"
+                android:layout_weight="1"
+                android:textColor="#F2090000"
+                android:textSize="20sp" android:ems="10"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner1">
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2"
                 android:textSize="20sp"
-                android:textColor="#090808"
-                android:visibility="visible"/>
+                android:layout_weight="1"
+                android:entries="@array/post"
+                android:scrollbarSize="5sp"/>
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner3"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:entries="@array/division"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner2">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText25"
+                android:layout_weight="1"
+                android:hint="КРУК"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText26"
+                android:layout_weight="1"
+                android:hint="КОТ"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner6"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner4">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText28"
+                android:layout_weight="1"
+                android:hint="Процент выездов"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText27"
+                android:layout_weight="1"
+                android:hint="Процент выезд.дней"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner7"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner6">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="Доход"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText21"
+                android:layout_weight="1"
+                android:textColor="#F2090000"
+                android:singleLine="false"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:hint="Недвиж. на балансе"
+                android:ems="10"
+                android:id="@+id/editText22"
+                android:layout_weight="1"
+                android:textColor="#F2090000"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/liner8"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner7">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText8"
+                android:layout_weight="1"
+                android:hint="План сбор 180-"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText16"
+                android:layout_weight="1"
+                android:hint="Факт сбор 180-" android:textColor="#090000"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner9"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner8">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText7"
+                android:layout_weight="1"
+                android:hint="План сбор 180+"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:layout_weight="1"
+                android:hint="Факт сбор 180+"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner9">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText20"
+                android:layout_weight="1"
+                android:hint="Изъято ТС РБ"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText19"
+                android:layout_weight="1"
+                android:hint="Изъято ТС БП"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner11"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner10">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Постав ТС на баланс"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Реализ ТС с баланс"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner11">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText18"
+                android:layout_weight="1"
+                android:hint="Проведено ИЦ"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText23"
+                android:layout_weight="1"
+                android:hint="Сумма реализ. с бал."/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner13"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner12">
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5"
+                android:id="@+id/textView33"
+                android:layout_weight="1"
+                android:textSize="30sp"/>
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:gravity="clip_horizontal|center"
+                android:text="Рассчитать"
+                android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="#090808"
-                android:text="КРУК"
-                android:visibility="visible"/>
+                android:background="#F2090000"
+                android:textColor="#FCF7F3F3"
+                android:ems="10"
+                android:layout_below="@+id/liner12"/>
     </LinearLayout>
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:hint="Параметр2"
-            android:layout_toEndOf="@+id/editText13"
-            android:layout_toRightOf="@+id/editText13"
-            android:layout_marginTop="471dp"
-            android:layout_alignParentTop="true"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText13"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:layout_marginTop="502dp"
-            android:layout_alignParentTop="true"
-            android:visibility="visible"
-            android:hint="Сумма реализации ТС"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText14"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:hint="Недвиж на бал"
-            android:layout_toEndOf="@+id/editText13"
-            android:layout_toRightOf="@+id/editText13"
-            android:layout_marginTop="417dp"
-            android:layout_alignParentTop="true"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:hint="Параметр1"
-            android:layout_marginTop="541dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText12"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="189dp"
-            android:layout_marginStart="189dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:layout_marginTop="477dp"
-            android:layout_alignParentTop="true"
-            android:visibility="visible"
-            android:hint="ТС на балансе"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText11"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="-5dp"
-            android:layout_marginStart="-5dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:layout_marginTop="479dp"
-            android:layout_alignParentTop="true"
-            android:visibility="visible"
-            android:hint="Проведение ИЦ"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText9"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="96dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="-11dp"
-            android:layout_marginStart="-11dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:hint="Изъято ТС РБ"
-    />
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText10"
-            android:layout_marginBottom="-89dp"
-            android:layout_marginLeft="179dp"
-            android:layout_marginStart="179dp"
-            android:textSize="20sp"
-            android:hint="План сбора 180-"
-            android:textColor="#0A0000"
-            android:visibility="visible"
-            android:layout_alignLeft="@+id/editText4"
-            android:layout_alignStart="@+id/editText4" android:layout_above="@+id/editText8"/>
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:layout_marginTop="524dp"
-            android:layout_alignParentTop="true"
-            android:textSize="30sp"
-            android:textColor="#090808"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="28dp"
-            android:layout_marginStart="28dp"
-            android:layout_alignParentLeft="true"
-            android:visibility="visible"/>
-
-    <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner10"
-            android:entries="@array/decimel_numbers"
-            android:background="#00000000"
-            android:popupBackground="#ffffffff"
-            android:visibility="visible"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="92dp"
-            android:layout_marginEnd="92dp"
-            android:layout_marginTop="294dp"
-            android:layout_below="@+id/textView5"/>
-    <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner12"
-            android:entries="@array/post"
-            android:background="#00000000"
-            android:popupBackground="#ffffffff"
-            android:layout_marginTop="301dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
-            android:layout_alignParentLeft="true"
-            android:visibility="visible"
-            android:layout_below="@+id/textView7"/>
-    <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner2"
-            android:entries="@array/division"
-            android:background="#00000000"
-            android:popupBackground="#ffffffff"
-            android:layout_marginTop="307dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="164dp"
-            android:layout_marginStart="164dp"
-            android:layout_alignParentLeft="true"
-            android:visibility="visible"
-            android:layout_below="@+id/textView4"/>
-    <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner13"
-            android:entries="@array/decimel_numbers"
-            android:background="#00000000"
-            android:popupBackground="#ffffffff"
-            android:layout_marginTop="271dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="267dp"
-            android:layout_marginStart="267dp"
-            android:layout_alignParentLeft="true"
-            android:visibility="visible"
-            android:layout_below="@+id/textView6"/>
-    <EditText
-            android:layout_width="220dp"
-            android:layout_height="57dp"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText4"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="-4dp"
-            android:layout_marginStart="-4dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:hint="План сбора 180+"
-            android:visibility="visible"
-            android:layout_marginTop="494dp"
-            android:layout_alignParentTop="true" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="53dp"/>
-    <EditText
-            android:layout_width="158dp"
-            android:layout_height="56dp"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText7"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="62dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginStart="50dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:hint="Факт сбора 180+"
-            android:textColor="#0A0000"
-            android:visibility="visible" android:layout_alignParentEnd="true" android:layout_alignParentRight="true"
-            android:layout_marginRight="203dp" android:layout_marginEnd="203dp" android:layout_marginTop="485dp"
-            android:layout_alignParentTop="true"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText6"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="191dp"
-            android:layout_marginStart="191dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-25dp"
-            android:hint="Изъято ТС БП" android:layout_alignParentEnd="true" android:layout_alignParentRight="true"
-            android:layout_marginRight="121dp" android:layout_marginEnd="121dp" android:layout_marginTop="458dp"
-            android:layout_alignParentTop="true"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText8"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="114dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="180dp"
-            android:layout_marginStart="180dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:visibility="visible"
-            android:hint="Факт сбор  180-"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText5"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="20sp"
-            android:layout_marginTop="262dp"
-            android:hint="Доход в рублях"
-            android:visibility="visible"
-            android:layout_below="@+id/spinner12"/>
-    <Button
-            android:text="Расчетать"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="239dp"
-            android:layout_marginStart="239dp"
-            android:textSize="15sp"
-            android:textColor="#E91E63"
-            android:background="#0C0A0A"
-            android:hint="Расчетать"
-            android:visibility="visible"
-            android:layout_below="@+id/spinner13"
-            android:layout_alignLeft="@+id/editText5" android:layout_alignStart="@+id/editText5"/>
-
-
-
-</LinearLayout>
+</RelativeLayout>

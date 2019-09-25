@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableStringBuilder
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -19,8 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val display=windowManager.defaultDisplay
+        val metrics=DisplayMetrics()
+        display.getMetrics(metrics)
 
-        button.setOnClickListener {
+        findViewById<Button>(R.id.button).setOnClickListener {
             this.setCalculatedValue()
         }
     }
@@ -157,7 +161,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setGSM(post: String, param1: Double, param2: Double): Double =
         if (!post.equals("ст.менеджер")) {
-            ((param1 / 100 * 0.50) + (param2 / 100 * 0.50)) * 13200
+            ((param1 * 0.50) + (param2 * 0.50)) * 13200
         } else {
             0.0
         }
@@ -176,41 +180,41 @@ class MainActivity : AppCompatActivity() {
     //---------------------------------------------------------------------------------------------------------------
 
     fun setCalculatedValue() {
-        var planCollectionMinus180 = findViewById<EditText>(R.id.editText10)
+        var planCollectionMinus180 = findViewById<EditText>(R.id.editText8)
 
-        var factCollectionMinus180 = findViewById<EditText>(R.id.editText8)
+        var factCollectionMinus180 = findViewById<EditText>(R.id.editText16)
 
-        var planCollectionPlus180 = findViewById<EditText>(R.id.editText4)
+        var planCollectionPlus180 = findViewById<EditText>(R.id.editText7)
 
-        var factCollectionPlus180 = findViewById<EditText>(R.id.editText7)
+        var factCollectionPlus180 = findViewById<EditText>(R.id.editText6)
 
-        var confiscationCarRB = findViewById<EditText>(R.id.editText9)
+        var confiscationCarRB = findViewById<EditText>(R.id.editText20)
 
-        var confiscationCarBP = findViewById<EditText>(R.id.editText6)
+        var confiscationCarBP = findViewById<EditText>(R.id.editText19)
 
-        var realtyOnBalance = findViewById<EditText>(R.id.editText14)
+        var spinnerDivision = findViewById<Spinner>(R.id.spinner3)
 
-        var realiseCarCount = findViewById<EditText>(R.id.editText9)
+        var providerIC = findViewById<EditText>(R.id.editText18)
 
-        var realiseCarSum = findViewById<EditText>(R.id.editText13)
+        var spinnerKRUK = findViewById<EditText>(R.id.editText25)
 
-        var carOnBalance = findViewById<EditText>(R.id.editText12)
+        var spinnerPost = findViewById<Spinner>(R.id.spinner2)
 
-        var spinnerDivision = findViewById<Spinner>(R.id.spinner2)
+        var spinnerKOT = findViewById<EditText>(R.id.editText26)
 
-        var providerIC = findViewById<EditText>(R.id.editText11)
+        var parametr2 = findViewById<EditText>(R.id.editText28)
 
-        var spinnerKRUK = findViewById<Spinner>(R.id.spinner10)
+        var parametr1 = findViewById<EditText>(R.id.editText27)
 
-        var spinnerPost = findViewById<Spinner>(R.id.spinner12)
+        var salary = findViewById<EditText>(R.id.editText21)//доход
 
-        var spinnerKOT = findViewById<Spinner>(R.id.spinner13)
+        var realtyOnBalance = findViewById<EditText>(R.id.editText22)
 
-        var parametr2 = findViewById<EditText>(R.id.editText2)
+        var realiseCarCount = findViewById<EditText>(R.id.editText5)
 
-        var parametr1 = findViewById<EditText>(R.id.editText)
+        var realiseCarSum = findViewById<EditText>(R.id.editText23)
 
-        var salary = findViewById<EditText>(R.id.editText5)//доход
+        var carOnBalance = findViewById<EditText>(R.id.editText4)
 
 
 
@@ -225,19 +229,13 @@ class MainActivity : AppCompatActivity() {
 
             var intConfiscationCarRB = parseInt(confiscationCarRB.text.toString())
 
-
-            var intConfiscationCarBP = parseInt(confiscationCarBP.text.toString()
-            )
-
+            var intConfiscationCarBP = parseInt(confiscationCarBP.text.toString())
 
             var doubleRealtyOnBalance = parseDouble(realtyOnBalance.text.toString())
 
-
             var intCarCount = parseInt(realiseCarCount.text.toString())
 
-
             var intCarBalance = parseInt(carOnBalance.text.toString())
-
 
             var doubleCarSum = parseDouble(realiseCarSum.text.toString())
 
@@ -247,29 +245,21 @@ class MainActivity : AppCompatActivity() {
 
             var intIC = parseInt(providerIC.getText().toString())
 
-
             // по умолчанию выводится первый элемент списка
             var doubleParametr1 = parseDouble(parametr1.text.toString())
 
             var doubleParametr2 = parseDouble(parametr2.text.toString())
 
-            var KRUK = parseDouble(valueOf(spinnerKRUK.getSelectedItem()))
+            var KRUK = parseDouble(spinnerKRUK.text.toString())
 
             var post = valueOf(spinnerPost.getSelectedItem())
 
-            var KOT = parseDouble(valueOf(spinnerKOT.getSelectedItem()))
+            var KOT = parseDouble(spinnerKOT.text.toString())
 
-            if (!doubleSalary.equals("") and !doubleCarSum.equals("") and !intCarCount.equals("") and !intPlanCollectionMinus180.equals(
-                    ""
-                )
-                and !intPlanCollectionPlus180.equals("") and !intFactCollectionMinus180.equals("") and !intFactCollectionPlus180.equals(
-                    ""
-                )
-                and !doubleRealtyOnBalance.equals("") and !intCarBalance.equals("") and !intIC.equals("") and !intConfiscationCarBP.equals(
-                    ""
-                )
-                and !intConfiscationCarRB.equals("")
-            ) {
+            if (!doubleSalary.equals("") && !doubleCarSum.equals("") && !intCarCount.equals("") && !intPlanCollectionMinus180.equals("")
+                and !intPlanCollectionPlus180.equals("") && !intFactCollectionMinus180.equals("") && !intFactCollectionPlus180.equals("")
+                and !doubleRealtyOnBalance.equals("") && !intCarBalance.equals("") && !intIC.equals("") && !intConfiscationCarBP.equals("")
+                && !intConfiscationCarRB.equals("")) {
 
                 var resultTarget = getTarget(post, intFactCollectionPlus180, intPlanCollectionPlus180)
                 var resultStandart = getStandart(
@@ -317,10 +307,7 @@ class MainActivity : AppCompatActivity() {
                 else
                     expression = expression3
 
-
-                //calculatePercentage(intPlanCollectionMinus180, intFactCollectionMinus180)
-                //var resultStandart = getStandart(post, intPlanCollectionMinus180, intFactCollectionMinus180, doubleRealtyOnBalance, doubleCarSum)
-                makeText(this,(expression).toString(), Toast.LENGTH_LONG).show()
+                findViewById<TextView>(R.id.textView33).text=expression.toString()
                 } else {
                     var toast = makeText(this,"Не все поля заполнены", Toast.LENGTH_LONG)
                     toast.show()
