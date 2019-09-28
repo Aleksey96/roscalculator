@@ -8,7 +8,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:context=".MainActivity"
-        android:background="#FAF6F6">
+        android:background="#D2D37B7B"
+        android:screenOrientation="portrait">
     <LinearLayout
             android:id="@+id/liner1"
             android:orientation="horizontal"
@@ -21,7 +22,8 @@
                 android:id="@+id/textView29"
                 android:layout_weight="1"
                 android:textSize="20sp"
-                android:textColor="#F2090000" android:ems="10"/>
+                android:textColor="#F2090000"
+                android:ems="10"/>
         <TextView
                 android:text="Дивизион"
                 android:layout_width="wrap_content"
@@ -29,8 +31,11 @@
                 android:id="@+id/textView13"
                 android:layout_weight="1"
                 android:textColor="#F2090000"
-                android:textSize="20sp" android:ems="10"/>
+                android:textSize="20sp"
+                android:ems="10"/>
     </LinearLayout>
+
+
     <LinearLayout
             android:id="@+id/liner2"
             android:orientation="horizontal"
@@ -53,51 +58,80 @@
                 android:layout_weight="1"
                 android:entries="@array/division"/>
     </LinearLayout>
+
+
+
     <LinearLayout
             android:id="@+id/liner4"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner2">
-        <EditText
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editText25"
                 android:layout_weight="1"
                 android:hint="КРУК"/>
-        <EditText
-                android:layout_width="wrap_content"
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editText26"
                 android:layout_weight="1"
                 android:hint="КОТ"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <LinearLayout
             android:id="@+id/liner6"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner4">
-        <EditText
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText28"
-                android:layout_weight="1"
-                android:hint="Процент выездов"/>
-        <EditText
-                android:layout_width="wrap_content"
+                android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText28"
+                    android:layout_weight="1"
+                    android:hint="Процент выездов"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editText27"
-                android:layout_weight="1"
-                android:hint="Процент выезд.дней"/>
+                android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText27"
+                    android:layout_weight="1"
+                    android:hint="Процент выезд.дней"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/liner7"
@@ -105,7 +139,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner6">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="Доход"
@@ -115,7 +154,13 @@
                 android:layout_weight="1"
                 android:textColor="#F2090000"
                 android:singleLine="false"/>
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:inputType="number"
@@ -124,6 +169,7 @@
                 android:id="@+id/editText22"
                 android:layout_weight="1"
                 android:textColor="#F2090000"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -132,7 +178,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner7">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -140,14 +191,22 @@
                 android:id="@+id/editText8"
                 android:layout_weight="1"
                 android:hint="План сбор 180-"/>
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editText16"
                 android:layout_weight="1"
-                android:hint="Факт сбор 180-" android:textColor="#090000"/>
+                android:hint="Факт сбор 180-"
+                android:textColor="#090000"/>
+    </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/liner9"
@@ -155,7 +214,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner8">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -163,7 +227,13 @@
                 android:id="@+id/editText7"
                 android:layout_weight="1"
                 android:hint="План сбор 180+"/>
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -171,6 +241,7 @@
                 android:id="@+id/editText6"
                 android:layout_weight="1"
                 android:hint="Факт сбор 180+"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/liner10"
@@ -178,7 +249,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner9">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -186,7 +262,13 @@
                 android:id="@+id/editText20"
                 android:layout_weight="1"
                 android:hint="Изъято ТС РБ"/>
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -194,6 +276,7 @@
                 android:id="@+id/editText19"
                 android:layout_weight="1"
                 android:hint="Изъято ТС БП"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/liner11"
@@ -201,7 +284,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner10">
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:inputType="number"
@@ -210,7 +298,13 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:hint="Постав ТС на баланс"/>
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:inputType="number"
@@ -219,6 +313,7 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:hint="Реализ ТС с баланс"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/liner12"
@@ -226,35 +321,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/liner11">
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText18"
                 android:layout_weight="1"
                 android:hint="Проведено ИЦ"/>
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText23"
-                android:layout_weight="1"
-                android:hint="Сумма реализ. с бал."/>
-    </LinearLayout>
-    <LinearLayout
-            android:id="@+id/liner13"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/liner12">
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView33"
-                android:layout_weight="1"
-                android:textSize="30sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -267,5 +347,19 @@
                 android:textColor="#FCF7F3F3"
                 android:ems="10"
                 android:layout_below="@+id/liner12"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/liner13"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/liner12">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView33"
+                android:layout_weight="1"
+                android:textSize="30sp"
+                android:textColor="#0A0000"/>
     </LinearLayout>
 </RelativeLayout>

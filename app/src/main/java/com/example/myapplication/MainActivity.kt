@@ -2,17 +2,13 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.SpannableStringBuilder
 import android.util.DisplayMetrics
-import android.util.Log
-import android.view.View
 import android.widget.*
 import android.widget.Toast.makeText
-import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Integer.parseInt
 import java.lang.Double.parseDouble
 import java.lang.String.valueOf
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,34 +27,36 @@ class MainActivity : AppCompatActivity() {
 
     //STANDART
     //---------------------------------------------------------------------------------------------------------------
-    fun calculatePercentage(intPlanCollectionMinus180: Int, intFactCollectionMinus180: Int): Double =
-        (if ((intPlanCollectionMinus180 / intFactCollectionMinus180) < 0.75) {
+    fun calculatePercentage(doublePlanCollectionMinus180: Double, doubleFactCollectionMinus180: Double): Double =
+        (if ((doublePlanCollectionMinus180 / doubleFactCollectionMinus180) < 0.75) {
             0.75
         } else {
-            (intPlanCollectionMinus180 / intFactCollectionMinus180).toDouble()
+            0.75
         })
 
-    fun getPercentage(post: String, intPlanCollectionMinus180: Int, intFactCollectionMinus180: Int): Double =
+    fun getPercentage(post: String, doublePlanCollectionMinus180: Double, doubleFactCollectionMinus180: Double): Double =
         if (post.equals("ст.менеджер")) {
-            calculatePercentage(intPlanCollectionMinus180, intFactCollectionMinus180)
+            calculatePercentage(doublePlanCollectionMinus180, doubleFactCollectionMinus180)
         } else {
             0.75
         }
 
-    fun getSumMoney(post: String, intPlanCollectionMinus180: Int, intFactCollectionMinus180: Int, doubleRealtyOnBalance: Double): Double =
-        if ((intFactCollectionMinus180 + doubleRealtyOnBalance / 2) >= intPlanCollectionMinus180 *
-            getPercentage(post, intPlanCollectionMinus180, intFactCollectionMinus180)
+    fun getSumMoney(post: String, doublePlanCollectionMinus180: Double, doubleFactCollectionMinus180: Double,
+                    doubleRealtyOnBalance: Double): Double =
+        if ((doubleFactCollectionMinus180 + doubleRealtyOnBalance / 2) >= doublePlanCollectionMinus180 *
+            getPercentage(post, doublePlanCollectionMinus180, doubleFactCollectionMinus180)
         ) {
-            (intFactCollectionMinus180 + doubleRealtyOnBalance / 2) * 0.01
+            (doubleFactCollectionMinus180 + doubleRealtyOnBalance / 2) * 0.01
         } else {
             0.0
         }
 
-    fun getStandart(post: String, intPlanCollectionMinus180: Int, intFactCollectionMinus180: Int, doubleRealtyOnBalance: Double, doubleCarSum: Double): Double {
+    fun getStandart(post: String, doublePlanCollectionMinus180: Double, doubleFactCollectionMinus180: Double,
+                    doubleRealtyOnBalance: Double, doubleCarSum: Double): Double {
         return doubleCarSum * 0.01 + getSumMoney(
             post,
-            intPlanCollectionMinus180,
-            intFactCollectionMinus180,
+            doublePlanCollectionMinus180,
+            doubleFactCollectionMinus180,
             doubleRealtyOnBalance
         )
     }
@@ -67,29 +65,29 @@ class MainActivity : AppCompatActivity() {
 
     //TARGET
     //----------------------------------------------------------------------------------------------------------------
-    fun getSumBetween0_75(intFactCollectionPlus180: Int, intPlanCollectionPlus180: Int): Double =
+    fun getSumBetween0_75(intFactCollectionPlus180: Double, intPlanCollectionPlus180: Double): Double =
         if (intFactCollectionPlus180 >= intPlanCollectionPlus180 * 0.75)
         {intPlanCollectionPlus180 * 0.75 * 0.01}
         else
         {0.0}
 
 
-    fun getSumBetween75_100(post: String, intFactCollectionPlus180: Int, intPlanCollectionPlus180: Int): Double {
+    fun getSumBetween75_100(post: String, doubleFactCollectionPlus180: Double, doublePlanCollectionPlus180: Double): Double {
         var expression1: Double
         var expression2: Double
         var expression4: Double
 
-        if (intFactCollectionPlus180 <= intPlanCollectionPlus180)
-            expression1 = (intFactCollectionPlus180 - intPlanCollectionPlus180 * 0.75) * 0.02
+        if (doubleFactCollectionPlus180 <= doublePlanCollectionPlus180)
+            expression1 = (doubleFactCollectionPlus180 - doublePlanCollectionPlus180 * 0.75) * 0.02
         else
-            expression1 = (intPlanCollectionPlus180 - intPlanCollectionPlus180 * 0.75) * 0.02
+            expression1 = (doublePlanCollectionPlus180 - doublePlanCollectionPlus180 * 0.75) * 0.02
 
-        if (intFactCollectionPlus180 > intPlanCollectionPlus180 * 0.75)
+        if (doubleFactCollectionPlus180 > doublePlanCollectionPlus180 * 0.75)
             expression2 = expression1
         else
             expression2 = 0.0
 
-        if (intFactCollectionPlus180 > intPlanCollectionPlus180 * 0.75)
+        if (doubleFactCollectionPlus180 > doublePlanCollectionPlus180 * 0.75)
             expression4 = expression1
         else
             expression4 = 0.0
@@ -101,67 +99,67 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun getSumBetween100_160(intFactCollectionPlus180: Int, intPlanCollectionPlus180: Int): Double {
+    fun getSumBetween100_160(doubleFactCollectionPlus180: Double, doublePlanCollectionPlus180: Double): Double {
         var expression1: Double
-        if (intFactCollectionPlus180 <= intPlanCollectionPlus180 * 1.6)
-            expression1 = (intFactCollectionPlus180 - intPlanCollectionPlus180) * 0.05
+        if (doubleFactCollectionPlus180 <= doublePlanCollectionPlus180 * 1.6)
+            expression1 = (doubleFactCollectionPlus180 - doublePlanCollectionPlus180) * 0.05
         else
-            expression1 = intPlanCollectionPlus180 * 1.55
-        if (intFactCollectionPlus180 > intPlanCollectionPlus180)
+            expression1 = ((doublePlanCollectionPlus180 * 1.6)-doublePlanCollectionPlus180)*0.05
+        if (doubleFactCollectionPlus180 > doublePlanCollectionPlus180)
             return expression1
         else
             return 0.0
     }
 
-    fun getSumAfter160(intPlanCollectionPlus180: Int, intFactCollectionPlus180: Int): Double {
-        if (intFactCollectionPlus180 > intPlanCollectionPlus180 * 1.6)
-            return (intFactCollectionPlus180 - intPlanCollectionPlus180 * 1.6) * 0.1
+    fun getSumAfter160(doublePlanCollectionPlus180: Double, doubleFactCollectionPlus180: Double): Double {
+        if (doubleFactCollectionPlus180 > doublePlanCollectionPlus180 * 1.6)
+            return (doubleFactCollectionPlus180 - doublePlanCollectionPlus180 * 1.6) * 0.1
         else
             return 0.0
     }
 
-    fun getTarget(post: String, intFactCollectionPlus180: Int, intPlanCollectionPlus180: Int): Double {
-        return getSumBetween0_75(intFactCollectionPlus180, intPlanCollectionPlus180) +
-                getSumBetween75_100(post, intFactCollectionPlus180, intPlanCollectionPlus180) +
-                getSumBetween100_160(intFactCollectionPlus180, intPlanCollectionPlus180) +
-                getSumAfter160(intPlanCollectionPlus180, intFactCollectionPlus180)
+    fun getTarget(post: String, doubleFactCollectionPlus180: Double, doublePlanCollectionPlus180: Double): Double {
+        return getSumBetween0_75(doubleFactCollectionPlus180, doublePlanCollectionPlus180) +
+                getSumBetween75_100(post, doubleFactCollectionPlus180, doublePlanCollectionPlus180) +
+                getSumBetween100_160(doubleFactCollectionPlus180, doublePlanCollectionPlus180) +
+                getSumAfter160(doublePlanCollectionPlus180, doubleFactCollectionPlus180)
     }
     //----------------------------------------------------------------------------------------------------------------
 
 
     //FIX
     //----------------------------------------------------------------------------------------------------------------
-    fun includRB(post: String, confiscationRB: Int): Int =
+    fun includRB(post: String, confiscationRB: Int): Double =
         if (!post.equals("ст.менеджер") && confiscationRB != 0) {
-            confiscationRB * 5000
+            (confiscationRB * 5000).toDouble()
         } else {
-            0
+            0.0
         }
 
-    fun setBalance(post: String, carBalance: Int): Int =
+    fun setBalance(post: String, carBalance: Int): Double =
         if (!post.equals("ст.менеджер") && carBalance > 0) {
-            carBalance * 5000
+            (carBalance * 5000).toDouble()
         } else {
-            0
+            0.0
         }
 
-    fun includBP(post: String, confiscationBP: Int): Int =
+    fun includBP(post: String, confiscationBP: Int): Double =
         if (!post.equals("ст.менеджер") && confiscationBP != 0) {
-            confiscationBP * 5000
+            (confiscationBP * 5000).toDouble()
         } else {
-            0
+            0.0
         }
 
-    fun setIC(post: String, strIC: Int): Int =
+    fun setIC(post: String, strIC: Int): Double =
         if (!post.equals("ст.менеджер") && strIC != 0) {
-            strIC * 5000
+            (strIC * 5000).toDouble()
         } else {
-            0
+            0.0
         }
 
     fun setGSM(post: String, param1: Double, param2: Double): Double =
         if (!post.equals("ст.менеджер")) {
-            ((param1 * 0.50) + (param2 * 0.50)) * 13200
+            ((param1/100 * 0.50) + (param2/100 * 0.50)) * 13200
         } else {
             0.0
         }
@@ -210,30 +208,25 @@ class MainActivity : AppCompatActivity() {
 
         var realtyOnBalance = findViewById<EditText>(R.id.editText22)
 
-        var realiseCarCount = findViewById<EditText>(R.id.editText5)
-
-        var realiseCarSum = findViewById<EditText>(R.id.editText23)
+        var realiseCarSum = findViewById<EditText>(R.id.editText5)
 
         var carOnBalance = findViewById<EditText>(R.id.editText4)
 
-
-
         try {
-            var intPlanCollectionMinus180 = parseInt(planCollectionMinus180.text?.toString() ?: "0")
 
-            var intFactCollectionMinus180 = parseInt(factCollectionMinus180.text.toString())
+            var doublePlanCollectionMinus180 = parseDouble(planCollectionMinus180.text?.toString() ?: "0")
 
-            var intPlanCollectionPlus180 = parseInt(planCollectionPlus180.text.toString())
+            var doubleFactCollectionMinus180 = parseDouble(factCollectionMinus180.text.toString())
 
-            var intFactCollectionPlus180 = parseInt(factCollectionPlus180.text.toString())
+            var doublePlanCollectionPlus180 = parseDouble(planCollectionPlus180.text.toString())
+
+            var doubleFactCollectionPlus180 = parseDouble(factCollectionPlus180.text.toString())
 
             var intConfiscationCarRB = parseInt(confiscationCarRB.text.toString())
 
             var intConfiscationCarBP = parseInt(confiscationCarBP.text.toString())
 
             var doubleRealtyOnBalance = parseDouble(realtyOnBalance.text.toString())
-
-            var intCarCount = parseInt(realiseCarCount.text.toString())
 
             var intCarBalance = parseInt(carOnBalance.text.toString())
 
@@ -243,9 +236,8 @@ class MainActivity : AppCompatActivity() {
 
             var doubleSalary = parseDouble(salary?.text?.toString() ?: "0")
 
-            var intIC = parseInt(providerIC.getText().toString())
+            var intIC = parseInt(providerIC.text.toString())
 
-            // по умолчанию выводится первый элемент списка
             var doubleParametr1 = parseDouble(parametr1.text.toString())
 
             var doubleParametr2 = parseDouble(parametr2.text.toString())
@@ -256,16 +248,12 @@ class MainActivity : AppCompatActivity() {
 
             var KOT = parseDouble(spinnerKOT.text.toString())
 
-            if (!doubleSalary.equals("") && !doubleCarSum.equals("") && !intCarCount.equals("") && !intPlanCollectionMinus180.equals("")
-                and !intPlanCollectionPlus180.equals("") && !intFactCollectionMinus180.equals("") && !intFactCollectionPlus180.equals("")
-                and !doubleRealtyOnBalance.equals("") && !intCarBalance.equals("") && !intIC.equals("") && !intConfiscationCarBP.equals("")
-                && !intConfiscationCarRB.equals("")) {
 
-                var resultTarget = getTarget(post, intFactCollectionPlus180, intPlanCollectionPlus180)
+                var resultTarget = getTarget(post, doubleFactCollectionPlus180, doublePlanCollectionPlus180)
                 var resultStandart = getStandart(
                     post,
-                    intPlanCollectionMinus180,
-                    intFactCollectionMinus180,
+                    doublePlanCollectionMinus180,
+                    doubleFactCollectionMinus180,
                     doubleRealtyOnBalance,
                     doubleCarSum
                 )
@@ -307,17 +295,46 @@ class MainActivity : AppCompatActivity() {
                 else
                     expression = expression3
 
-                findViewById<TextView>(R.id.textView33).text=expression.toString()
-                } else {
-                    var toast = makeText(this,"Не все поля заполнены", Toast.LENGTH_LONG)
-                    toast.show()
-                }
+                if (expression > 2 * doubleSalary)
 
-            }
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",(2 * doubleSalary))
+                else
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",expression)
+        }
         catch(ex:NumberFormatException) {
+            findViewById<EditText>(R.id.editText8).setText("")
+
+            findViewById<EditText>(R.id.editText16).setText("")
+
+            findViewById<EditText>(R.id.editText7).setText("")
+
+            findViewById<EditText>(R.id.editText6).setText("")
+
+            findViewById<EditText>(R.id.editText20).setText("")
+
+            findViewById<EditText>(R.id.editText19).setText("")
+
+            findViewById<EditText>(R.id.editText18).setText("")
+
+            findViewById<EditText>(R.id.editText25).setText("")
+
+            findViewById<EditText>(R.id.editText26).setText("")
+
+            findViewById<EditText>(R.id.editText28).setText("")
+
+            findViewById<EditText>(R.id.editText27).setText("")
+
+            findViewById<EditText>(R.id.editText21).setText("")
+
+            findViewById<EditText>(R.id.editText22).setText("")
+
+            findViewById<EditText>(R.id.editText5).setText("")
+
+            findViewById<EditText>(R.id.editText4).setText("")
+
             makeText(
                 this,
-                "Преобразование прошло некорректно",
+                "Введены некорректные значения",
                 Toast.LENGTH_LONG
             ).show()
         }
