@@ -5,6 +5,7 @@
         <item>сборщик</item>
     </string-array>
     <string-array name="division">
+        <!--<item>0</item>-->
         <item>1</item>
         <item>2</item>
     </string-array>

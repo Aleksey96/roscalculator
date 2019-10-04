@@ -2,23 +2,47 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextWatcher
 import android.util.DisplayMetrics
 import android.widget.*
 import android.widget.Toast.makeText
+import java.lang.ArithmeticException
 import java.lang.Integer.parseInt
 import java.lang.Double.parseDouble
 import java.lang.String.valueOf
 import java.util.*
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.view.View
 
 
-class MainActivity : AppCompatActivity() {
 
+
+class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val display=windowManager.defaultDisplay
         val metrics=DisplayMetrics()
         display.getMetrics(metrics)
+        val spinner=findViewById<Spinner>(R.id.spinner3)
+        val adapter= CustomAdapter(this,android.R.layout.simple_spinner_item, arrayOf("1","2"))
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.setAdapter(adapter)
+
+        spinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+            override fun onItemSelected(
+                parent: AdapterView<*>, view: View,
+                pos: Int, id: Long
+            ) {
+                // Set adapter flag that something has been chosen
+                CustomAdapter.flag = true
+                parent.getItemAtPosition(pos)
+            }
+        }
 
         findViewById<Button>(R.id.button).setOnClickListener {
             this.setCalculatedValue()
@@ -176,8 +200,97 @@ class MainActivity : AppCompatActivity() {
             return result
     }
     //---------------------------------------------------------------------------------------------------------------
+    fun getMessageExeption(){
+        findViewById<EditText>(R.id.editText8).setText("0")
 
+        findViewById<EditText>(R.id.editText16).setText("0")
+
+        findViewById<EditText>(R.id.editText7).setText("0")
+
+        findViewById<EditText>(R.id.editText6).setText("0")
+
+        findViewById<EditText>(R.id.editText20).setText("0")
+
+        findViewById<EditText>(R.id.editText19).setText("0")
+
+        findViewById<EditText>(R.id.editText18).setText("0")
+
+        findViewById<EditText>(R.id.editText25).setText("0")
+
+        findViewById<EditText>(R.id.editText26).setText("0")
+
+        findViewById<EditText>(R.id.editText28).setText("0")
+
+        findViewById<EditText>(R.id.editText27).setText("0")
+
+        findViewById<EditText>(R.id.editText21).setText("0")
+
+        findViewById<EditText>(R.id.editText22).setText("0")
+
+        findViewById<EditText>(R.id.editText5).setText("0")
+
+        findViewById<EditText>(R.id.editText4).setText("0")
+
+        makeText(
+            this,
+            "Введены некорректные значения",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    fun changeText(view:View){
+        if(findViewById<EditText>(R.id.editText8).text.length==0)
+        findViewById<EditText>(R.id.editText8).setText("0")
+
+        if(findViewById<EditText>(R.id.editText16).text.length==0)
+        findViewById<EditText>(R.id.editText16).setText("0")
+
+        if(findViewById<EditText>(R.id.editText7).text.length==0)
+        findViewById<EditText>(R.id.editText7).setText("0")
+
+        if(findViewById<EditText>(R.id.editText6).text.length==0)
+        findViewById<EditText>(R.id.editText6).setText("0")
+
+        if(findViewById<EditText>(R.id.editText20).text.length==0)
+        findViewById<EditText>(R.id.editText20).setText("0")
+
+        if(findViewById<EditText>(R.id.editText19).text.length==0)
+        findViewById<EditText>(R.id.editText19).setText("0")
+
+        if(findViewById<EditText>(R.id.editText18).text.length==0)
+        findViewById<EditText>(R.id.editText18).setText("0")
+
+        if(findViewById<EditText>(R.id.editText25).text.length==0)
+        findViewById<EditText>(R.id.editText25).setText("0")
+
+        if(findViewById<EditText>(R.id.editText26).text.length==0)
+        findViewById<EditText>(R.id.editText26).setText("0")
+
+        if(findViewById<EditText>(R.id.editText28).text.length==0)
+        findViewById<EditText>(R.id.editText28).setText("0")
+
+        if(findViewById<EditText>(R.id.editText27).text.length==0)
+        findViewById<EditText>(R.id.editText27).setText("0")
+
+        if(findViewById<EditText>(R.id.editText21).text.length==0)
+        findViewById<EditText>(R.id.editText21).setText("0")
+
+        if(findViewById<EditText>(R.id.editText22).text.length==0)
+        findViewById<EditText>(R.id.editText22).setText("0")
+
+        if(findViewById<EditText>(R.id.editText5).text.length==0)
+        findViewById<EditText>(R.id.editText5).setText("0")
+
+        if(findViewById<EditText>(R.id.editText4).text.length==0)
+        findViewById<EditText>(R.id.editText4).setText("0")
+
+        val editText= view.id
+        findViewById<EditText>(editText).setText("")
+    }
     fun setCalculatedValue() {
+
+
+
         var planCollectionMinus180 = findViewById<EditText>(R.id.editText8)
 
         var factCollectionMinus180 = findViewById<EditText>(R.id.editText16)
@@ -214,7 +327,7 @@ class MainActivity : AppCompatActivity() {
 
         try {
 
-            var doublePlanCollectionMinus180 = parseDouble(planCollectionMinus180.text?.toString() ?: "0")
+            var doublePlanCollectionMinus180 = parseDouble(planCollectionMinus180.text.toString())
 
             var doubleFactCollectionMinus180 = parseDouble(factCollectionMinus180.text.toString())
 
@@ -233,6 +346,8 @@ class MainActivity : AppCompatActivity() {
             var doubleCarSum = parseDouble(realiseCarSum.text.toString())
 
             var division = parseInt(valueOf(spinnerDivision.getSelectedItem()))
+
+           // makeText(this, division.toString(), Toast.LENGTH_LONG).show()
 
             var doubleSalary = parseDouble(salary?.text?.toString() ?: "0")
 
@@ -262,81 +377,34 @@ class MainActivity : AppCompatActivity() {
                     intIC, doubleParametr1, doubleParametr2, doubleSalary
                 )
 
-                var expression: Double
-                var expression1: Double
-                var expression2: Double
-                var expression3: Double
-                var expression4: Double
-
                 var result = (resultFix + resultStandart + resultTarget) * KRUK * KOT
 
-                if (result > doubleSalary * 2)
-                    expression1 = doubleSalary * 2
+            if(division==0){
+                if(result>doubleSalary*2)
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",(2*doubleSalary))
                 else
-                    expression1 = result
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",result)
+            }
 
-                if (result > doubleSalary * 2.5)
-                    expression2 = doubleSalary * 2.5
+            if ( division==1)   {
+                if(result > doubleSalary * 3)
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",(3*doubleSalary))
                 else
-                    expression2 = result
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",result)
+                }
 
-                if (division == 2)
-                    expression3 = expression2
+            if ( division==2){
+                if(result > doubleSalary * 2.5)
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",(2.5*doubleSalary))
                 else
-                    expression3 = expression1
-
-                if (result > doubleSalary * 3)
-                    expression4 = doubleSalary * 3
-                else
-                    expression4 = result
-
-                if (division == 1)
-                    expression = expression4
-                else
-                    expression = expression3
-
-                if (expression > 2 * doubleSalary)
-
-                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",(2 * doubleSalary))
-                else
-                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",expression)
+                    findViewById<TextView>(R.id.textView33).text = String.format(Locale.US,"%.2f",result)
+                }
         }
         catch(ex:NumberFormatException) {
-            findViewById<EditText>(R.id.editText8).setText("")
-
-            findViewById<EditText>(R.id.editText16).setText("")
-
-            findViewById<EditText>(R.id.editText7).setText("")
-
-            findViewById<EditText>(R.id.editText6).setText("")
-
-            findViewById<EditText>(R.id.editText20).setText("")
-
-            findViewById<EditText>(R.id.editText19).setText("")
-
-            findViewById<EditText>(R.id.editText18).setText("")
-
-            findViewById<EditText>(R.id.editText25).setText("")
-
-            findViewById<EditText>(R.id.editText26).setText("")
-
-            findViewById<EditText>(R.id.editText28).setText("")
-
-            findViewById<EditText>(R.id.editText27).setText("")
-
-            findViewById<EditText>(R.id.editText21).setText("")
-
-            findViewById<EditText>(R.id.editText22).setText("")
-
-            findViewById<EditText>(R.id.editText5).setText("")
-
-            findViewById<EditText>(R.id.editText4).setText("")
-
-            makeText(
-                this,
-                "Введены некорректные значения",
-                Toast.LENGTH_LONG
-            ).show()
+            getMessageExeption()
+        }
+        catch(e:ArithmeticException){
+            getMessageExeption()
         }
         }
 

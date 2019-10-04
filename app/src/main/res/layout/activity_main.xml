@@ -43,20 +43,30 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/liner1">
         <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/spinner2"
                 android:textSize="20sp"
                 android:layout_weight="1"
                 android:entries="@array/post"
-                android:scrollbarSize="5sp"/>
+                android:scrollbarSize="5sp"
+        /><!--android:spinnerMode:dialog фон затемняется и список в середине экрана-->
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView8"
+                android:layout_weight="1"
+                tools:visibility="visible"
+                android:visibility="visible"
+                android:textColor="#000000"/>
         <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/spinner3"
                 android:textSize="20sp"
-                android:layout_weight="1"
-                android:entries="@array/division"/>
+                android:layout_weight="2"
+                android:visibility="visible"
+                tools:visibility="visible"/>
     </LinearLayout>
 
 
@@ -73,13 +83,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText25"
-                android:layout_weight="1"
-                android:hint="КРУК"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText25"
+                    android:layout_weight="1"
+                    android:hint="КРУК"
+                    android:maxLength="4"
+                    android:onClick="changeText"
+                    android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
@@ -87,13 +100,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText26"
-                android:layout_weight="1"
-                android:hint="КОТ"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText26"
+                    android:layout_weight="1"
+                    android:hint="КОТ"
+                    android:maxLength="4"
+                    android:onClick="changeText"
+                    android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -115,7 +131,9 @@
                     android:ems="10"
                     android:id="@+id/editText28"
                     android:layout_weight="1"
-                    android:hint="Процент выездов"/>
+                    android:hint="Процент выездов"
+                    android:maxLength="5"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -130,7 +148,9 @@
                     android:ems="10"
                     android:id="@+id/editText27"
                     android:layout_weight="1"
-                    android:hint="Процент выезд.дней"/>
+                    android:hint="Процент выезд.дней"
+                    android:maxLength="5"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -144,31 +164,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:hint="Доход"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText21"
-                android:layout_weight="1"
-                android:textColor="#F2090000"
-                android:singleLine="false"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="Доход"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText21"
+                    android:layout_weight="1"
+                    android:textColor="#F2090000"
+                    android:singleLine="false"
+                    android:maxLength="6"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:hint="Недвиж. на балансе"
-                android:ems="10"
-                android:id="@+id/editText22"
-                android:layout_weight="1"
-                android:textColor="#F2090000"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:hint="Недвиж. на балансе"
+                    android:ems="10"
+                    android:id="@+id/editText22"
+                    android:layout_weight="1"
+                    android:textColor="#F2090000"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -183,29 +207,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText8"
-                android:layout_weight="1"
-                android:hint="План сбор 180-"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText8"
+                    android:layout_weight="1"
+                    android:hint="План сбор 180-"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText16"
-                android:layout_weight="1"
-                android:hint="Факт сбор 180-"
-                android:textColor="#090000"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText16"
+                    android:layout_weight="1"
+                    android:hint="Факт сбор 180-"
+                    android:textColor="#090000"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
     </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -219,28 +247,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText7"
-                android:layout_weight="1"
-                android:hint="План сбор 180+"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText7"
+                    android:layout_weight="1"
+                    android:hint="План сбор 180+"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText6"
-                android:layout_weight="1"
-                android:hint="Факт сбор 180+"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editText6"
+                    android:layout_weight="1"
+                    android:hint="Факт сбор 180+"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -254,28 +286,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editText20"
-                android:layout_weight="1"
-                android:hint="Изъято ТС РБ"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText20"
+                    android:layout_weight="1"
+                    android:hint="Изъято ТС РБ"
+                    android:maxLength="2"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editText19"
-                android:layout_weight="1"
-                android:hint="Изъято ТС БП"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText19"
+                    android:layout_weight="1"
+                    android:hint="Изъято ТС БП"
+                    android:maxLength="2"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -289,30 +325,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editText4"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:hint="Постав ТС на баланс"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText4"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:hint="Постав ТС на баланс"
+                    android:maxLength="2"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editText5"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:hint="Реализ ТС с баланс"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText5"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:hint="Реализ ТС с баланс"
+                    android:maxLength="10"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -326,14 +366,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editText18"
-                android:layout_weight="1"
-                android:hint="Проведено ИЦ"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editText18"
+                    android:layout_weight="1"
+                    android:hint="Проведено ИЦ"
+                    android:maxLength="2"
+                    android:onClick="changeText" android:text="0"/>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
                 android:layout_width="match_parent"
